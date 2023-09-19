@@ -15,12 +15,22 @@ def GiaiPT():
 
         list2 = [float(entry5.get()), float(entry6.get())]
         B = numpy.array(list2)
-        # print(A)
-        # print(B)
         X = numpy.dot(A1,B)
-        
-        # print(X)
         result.config(text="Result: {}".format(X))
+        """List3 = []
+        List3.append([float(entry1.get()), float(entry2.get()), float(entry5.get())])
+        List3.append([float(entry3.get()), float(entry4.get()), float(entry6.get())])
+        C = numpy.array(List3)
+        if(numpy.linalg.matrix_rank(A)<numpy.linalg.matrix_rank(C)):
+            print("vo nghiem")
+        else:
+            if(numpy.linalg.matrix_rank(A)==numpy.linalg.matrix_rank(C)):
+                X = numpy.dot(A1,B)
+                result.config(text="Result: {}".format(X))
+            else:
+                print("vo so")"""
+                
+
         
     except ValueError:
         entry1.delete(0, 'end')
