@@ -5,22 +5,31 @@ import numpy
 from tkinter import *
 
 def GiaiPT():
-    list1 = []
-    list1.append([float(entry1.get()), float(entry2.get())])
-    list1.append([float(entry3.get()), float(entry4.get())])
-    
-    A = numpy.array(list1)
-    A1 = numpy.linalg.inv(A)
+    try:
+        list1 = []
+        list1.append([float(entry1.get()), float(entry2.get())])
+        list1.append([float(entry3.get()), float(entry4.get())])
+        
+        A = numpy.array(list1)
+        A1 = numpy.linalg.inv(A)
 
-    list2 = [float(entry5.get()), float(entry6.get())]
-    B = numpy.array(list2)
-
-    # print(A)
-    # print(B)
-    X = numpy.dot(A1,B)
-    
-    # print(X)
-    result.config(text="Result: {}".format(X))
+        list2 = [float(entry5.get()), float(entry6.get())]
+        B = numpy.array(list2)
+        # print(A)
+        # print(B)
+        X = numpy.dot(A1,B)
+        
+        # print(X)
+        result.config(text="Result: {}".format(X))
+        
+    except ValueError:
+        entry1.delete(0, 'end')
+        entry2.delete(0, 'end')
+        entry3.delete(0, 'end')
+        entry4.delete(0, 'end')
+        entry5.delete(0, 'end')
+        entry6.delete(0, 'end')
+        result.config(text="Vui Long Nhap So !!")
 
     
 
