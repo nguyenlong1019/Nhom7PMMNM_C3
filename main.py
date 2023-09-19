@@ -36,7 +36,7 @@ def GiaiPT():
 window = Tk()
 window.geometry("1000x500")
 window.title("Giai He Phuong Trinh N An")
-# window.configure(background="#f1f")
+window.configure(background="#EBE4D1")
 
 content = Label(window, text="Ax + By = E\n Cx + Dy = F")
 content.grid(row=0, column=0, padx=10, pady=10)
