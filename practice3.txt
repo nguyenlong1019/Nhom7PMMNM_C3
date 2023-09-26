@@ -1,0 +1,14 @@
+Dữ liệu vào: Có 9 lớp - Số sinh viên mỗi lớp
+                      - Số sinh viên đạt điểm A, B+, B, C+
+                      - Số sinh viên đạt chuẩn L1, L2 
+                      - Số sinh viên đạt bài TX1, TX2, Cuối kỳ 
+                      Của mỗi lớp
+
+Requirement: - Tổng số sinh viên tham gia môn học - Tổng số sinh viên đạt A
+             - Tỉ lệ % sinh viên đạt (qua môn)
+             - Tìm lớp có số sinh viên lớn nhất, nhỏ nhất
+             - Tìm được TB cộng số sinh viên đạt 
+             - So sánh số SV đạt A, B+
+             - Sự chênh lệch số sv giữa các điểm
+             - Vẽ đồ thị phân bố các điểm (phổ điểm các môn)
+             
