@@ -26,6 +26,7 @@ dulieusosanh = np.array([np.sum(in_data[:,3]),np.sum(in_data[:,4]),np.sum(in_dat
 myexplode = [0.2,0,0,0,0,0,0,0.2]
 fig1 = plt.figure()
 plt.pie(dulieusosanh, labels=kieusosanh,wedgeprops={'edgecolor':'white','linewidth':1.5},explode=myexplode, autopct='%1.1f%%')
+plt.title("Tỉ lệ điểm của tất cả các lớp")
 plt.legend(loc='upper left',bbox_to_anchor=(0.9, 1.1))
 plt.axis('equal') 
 
@@ -34,10 +35,16 @@ i, = np.where(diemA == maxa)
 print("=========")
 print('lop co nhieu diem A la {0} co {1} sv dat diem A'.format(in_data[i,0],maxa))
 
+dict1 = dict(zip(kieusosanh,dulieusosanh))
+timmax = max(dict1.values())
+maxkey = [key for key, value in dict1.items() if value == timmax][0]
+print(f"Số điểm sinh viên đạt được nhiều nhất: {maxkey}")
+
 fig2 = plt.figure()
 kieusosanh1 = ["L1","L2","TX1","TX2","CK"]
 Solieu = np.array([np.sum(in_data[:,11]),np.sum(in_data[:,12]),np.sum(in_data[:,13]),np.sum(in_data[:,14]),np.sum(in_data[:,15])])
 plt.bar(kieusosanh1, Solieu,width=0.3)
+plt.title("Tổng các cơ số điểm")
 
 fig3 = plt.figure()
 plt.plot(range(len(diemA)),diemA,'r-',label="Diem A")
