@@ -1,3 +1,7 @@
+# ---------------------------------
+# Code ban đầu
+# ---------------------------------
+
 # import pandas as pd
 # from numpy import array
 # import matplotlib.pyplot as plt
@@ -23,7 +27,9 @@
 # plt.legend(loc='upper right')
 # plt.show()
       
-
+# ---------------------------------
+# Copyright by Quynh Trang Teacher
+# ---------------------------------
 
 
 import pandas as pd
@@ -56,14 +62,5 @@ plt.pie(dulieusosanh, labels=kieusosanh,explode=myexplode, autopct='%1.1f%%')
 plt.axis('equal') 
 
 
-maxa = diemA.max()
-i, = np.where(diemA == maxa)
-print("=========")
-print('lop co nhieu diem A la {0} co {1} sv dat diem A'.format(in_data[i,0],maxa))
-fig2 = plt.figure()
-plt.plot(range(len(diemA)),diemA,'r-',label="Diem A")
-plt.plot(range(len(diemBc)),diemBc,'g-',label="Diem B +")
-plt.xlabel('Lơp')
-plt.ylabel(' So sv dat diem ')
-plt.legend(loc='upper right')
+
 plt.show()

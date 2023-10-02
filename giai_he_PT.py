@@ -1,6 +1,3 @@
-#bài này giải hệ phương trình x+2y=5 và 3x+4y =6
-# Yêu cầu hoàn chỉnh lại đoạn code
-#để có 1 app giải hệ phương trình có n phương trình n ẩn
 import numpy
 from tkinter import *
 from time import sleep
@@ -103,6 +100,10 @@ result.grid(row=6, column=1, padx=10, pady=10)
 
 window.mainloop()
 
+
+#bài này giải hệ phương trình x+2y=5 và 3x+4y =6
+# Yêu cầu hoàn chỉnh lại đoạn code
+#để có 1 app giải hệ phương trình có n phương trình n ẩn
 
 # A = np.array([(1,2),(3,4)])
 # B = np.array([5,6])
