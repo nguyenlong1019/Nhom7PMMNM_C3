@@ -29,6 +29,7 @@ plt.pie(dulieusosanh, labels=kieusosanh,wedgeprops={'edgecolor':'white','linewid
 plt.title("Tỉ lệ điểm của tất cả các lớp")
 plt.legend(loc='upper left',bbox_to_anchor=(0.9, 1.1))
 plt.axis('equal') 
+plt.savefig('bieu_do_phan_tram.png')
 
 maxa = diemA.max()
 i, = np.where(diemA == maxa)
@@ -45,6 +46,9 @@ kieusosanh1 = ["L1","L2","TX1","TX2","CK"]
 Solieu = np.array([np.sum(in_data[:,11]),np.sum(in_data[:,12]),np.sum(in_data[:,13]),np.sum(in_data[:,14]),np.sum(in_data[:,15])])
 plt.bar(kieusosanh1, Solieu,width=0.3)
 plt.title("Tổng các cơ số điểm")
+plt.xlabel('Loại bài thi')
+plt.ylabel(' Số sinh viên ')
+plt.savefig('bieu_do_cot.png')
 
 fig3 = plt.figure()
 plt.plot(range(len(diemA)),diemA,'r-',label="Diem A")
@@ -52,4 +56,5 @@ plt.plot(range(len(diemBc)),diemBc,'g-',label="Diem B +")
 plt.xlabel('Lơp')
 plt.ylabel(' So sv dat diem ')
 plt.legend(loc='upper right')
+plt.savefig('bieu_do_duong.png')
 plt.show()
