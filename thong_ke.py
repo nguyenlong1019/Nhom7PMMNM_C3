@@ -281,6 +281,60 @@ class App:
     # ---------------------------------
     # Copyright by Nguyen Van Long
     # ---------------------------------
+    # ---------------------------------
+    # Copyright by Bui Nhat Minh
+    # ---------------------------------
+    def export_excel(self):
+        # Workbook là nơi chứa tất cả các phần của tài liệu excel
+        wb = Workbook()
+
+        # Chọn trang tính mặc định
+        sheet = wb.active
+
+        # Đặt tiêu đề cho báo cáo
+        sheet.title = "Lập trình Python (FE6051)"
+
+        # Tạo font cho tiêu đề
+        title_font = Font(name='Arial', size=16, bold=True)
+
+        sheet.append(["Báo cáo học phần Lập trình Python (FE6051)",])
+        sheet.row_dimensions[1].height = 30 # chiều cao dòng 1 là 30px
+        # merge dòng 1
+        sheet.merge_cells('A1:R1')
+
+        # căn giữa row đầu tiên
+        for row in sheet.iter_rows(min_row=1, max_row=1, min_col=1, max_col=1):
+            for cell in row:
+                cell.alignment = Alignment(horizontal='center', vertical='center')
+
+        # Từ A đến R là định dạng chiều rộng A4
+        # 50 dòng là chiều dài A4
+
+        # Thêm dữ liệu vào báo cáo
+        data = [
+            ["Tổng số sinh viên", "Số sinh viên đạt A", "Số sinh viên điểm F", "Tỉ lệ sinh viên vượt qua học phần"],
+            [519, "86 (16.6%)", "87 (16.8%)", "432 (83.2%)"],
+        ]
+
+        total_cells = 18
+        num_columns = 4
+
+        # Ghi dữ liệu vào các ô
+        for row_data in data:
+            sheet.append(row_data)
+        
+        # Định dạng dòng đầu tiên (header) với màu nền và in đậm
+        # các dòng trong sheet đánh số từ 1 (khác với array đánh số từ 0)
+        header_row = sheet[1]
+        for cell in header_row:
+            cell.font = Font(bold=True)
+            cell.fill = PatternFill(start_color="f0f0f0", end_color="f0f0f0", fill_type='solid')
+
+        # Lưu tệp excel với tên file
+        wb.save('final_report.xlsx')
+    # ---------------------------------
+    # Copyright by Bui Nhat Minh
+    # ---------------------------------
 
 
 
