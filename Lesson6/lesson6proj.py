@@ -1,6 +1,6 @@
 import cv2
 import tkinter as tk
-from tkinter import filedialog, messagebox
+from tkinter import filedialog, messagebox, ttk
 from PIL import ImageTk, Image
 import numpy as np
 
@@ -8,6 +8,8 @@ class ImageCompressor:
     def __init__(self, root):
         self.root = root
         self.root.title("Image Compressor")
+        # self.root.geometry('500x500')
+        # self.root.resizable(1,1)
         
         self.image_path = None
         self.compressed_image = None
@@ -18,19 +20,19 @@ class ImageCompressor:
         
     def create_widgets(self):
         # Chọn ảnh
-        self.select_button = tk.Button(self.root, text="Chọn ảnh", command=self.select_image)
+        self.select_button = ttk.Button(self.root, text="Chọn ảnh", command=self.select_image)
         self.select_button.pack(pady=10)
         
         # Nén ảnh
-        self.compress_button = tk.Button(self.root, text="Nén ảnh", command=self.show_compression_options)
+        self.compress_button = ttk.Button(self.root, text="Nén ảnh", command=self.show_compression_options)
         self.compress_button.pack(pady=10)
         
         # Tăng độ phân giải
-        self.increase_resolution_button = tk.Button(self.root, text="Tăng độ phân giải", command=self.show_resolution_options)
+        self.increase_resolution_button = ttk.Button(self.root, text="Tăng độ phân giải", command=self.show_resolution_options)
         self.increase_resolution_button.pack(pady=10)
         
         # Lưu ảnh
-        self.save_button = tk.Button(self.root, text="Lưu ảnh", command=self.save_image)
+        self.save_button = ttk.Button(self.root, text="Lưu ảnh", command=self.save_image)
         self.save_button.pack(pady=10)
         
     def select_image(self):
