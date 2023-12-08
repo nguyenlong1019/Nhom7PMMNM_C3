@@ -1,0 +1,13 @@
+1. Tạo pain app với Canvas, choose color dialog
+
+2. Game rắn săn mồi với Canvas (menu, điểm cao, tên,...)
+
+3. Phát triển phần thông tin của ứng dụng hỗ trợ xử lý tín hiệu số, còn phần hình ảnh vẽ thì dùng canvas
+dùng collapse trong ứng dụng để hiển thị thông tin
+
+4. Ứng dụng phân tích dữ liệu và tạo báo cáo tự động (Khoai đấy :), 
+auto complete combobox (nên dùng trong BTL trong search :)
+
+5. Popup sử dụng để run code trong code editor, 
+search string in text (có thể dùng như ctr + f để tìm text(highlight)),
+có thể dùng auto save code bằng after() method in tkinter

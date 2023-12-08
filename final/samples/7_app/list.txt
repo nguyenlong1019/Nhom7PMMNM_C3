@@ -1,0 +1,20 @@
+1. Calculator App: Ứng dụng máy tính đơn giản, phát triển như máy tính cầm tay, máy tính PC, chuyển đổi mã nhị phân,...
+2. Table using Entry: có thể dùng tạo ứng dụng như excel
+3. Calendar App: ứng dụng hiển thị lịch theo năm nhập vào
+4. File Explorer: mở file và hiển thị đường dẫn
+5. Todo List: khá đơn giản, chỉ có thêm và xóa, nên thêm chức năng và phát triển thành 1 App lớn
+6. Weight Conversation: ứng dụng chuyển đổi khối lượng kg -> gram, ... nên thêm thể tích, độ dài, ... 
+Có thể phát triển như ứng dụng Calculator trên PC
+7. Ứng dụng tính tuổi chính xác từng ngày tháng năm, nhập vào ngày tháng năm sinh, và ngày tháng năm hiện tại sẽ
+ra tuổi theo ngày tháng năm
+8. GUI tính điểm trung bình trung tích lũy (GPA), có dữ liệu điểm môn và tín chỉ có thể tính được hết
+có thể phát triển thành quản lý sinh viên
+9. Loan calculator: ứng dụng tính toán tín dụng, tính toán chi tiêu có thể phát triển thành quản lý chi tiêu
+10. Digital Clock, phát triển thành App clock trên desktop
+11. Notepad -> phát triển thêm terminal và theme để cố gắng trở thành 1 phần như visual studio code
+12. Color game: game đơn giản cho một danh sách màu đơn giản và phải đoán đúng màu đó, 
+chữ hiển thị không phải là màu hiển thị để đánh lừa người chơi.
+13. Tính tỷ lệ thành đôi (game thời trẻ trâu :)
+14. Form đăng ký đơn giản, phát triển thành đăng ký đăng nhập cho todo list App
+15. Thống kê real-time số lượng người max covid => bây giờ nên phát triển thành ứng dung truy cập vị trí,
+và lấy dữ liệu thời tiết từ API và hiển thị lên
