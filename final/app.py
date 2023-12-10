@@ -29,10 +29,57 @@ class App:
         # Frame 1 Left
         self.f1_left = ttk.Frame(self.root, style="F1L.TFrame")
         self.f1_left.place(x=0, y=0, width=200, height=700)
+        
+        # Button dùng để nhập file
         self.import_btn = ttk.Button(self.f1_left, text="Import Data")
-        self.import_btn.grid(row=0, column=0, padx=5, pady=5)
+        self.import_btn.place(x=10, y=10)
+        
+        # Button dùng để làm sạch data
         self.clean_data_btn = ttk.Button(self.f1_left, text="Clearn Data")
-        self.clean_data_btn.grid(row=1, column=0, padx=5, pady=5)
+        self.clean_data_btn.place(x=10, y=50)
+
+        self.style.configure(style="CC.TFrame", background='#F3F8FF')
+
+        # Frame này để thực hiện khi người dùng muốn trực quan hóa dữ liệu,
+        # Người dùng sẽ chọn các trường để phân tích
+        self.choose_chart_frm = ttk.Frame(self.f1_left, style='CC.TFrame')
+        self.choose_chart_frm.place(x=10, y=100, width=180, height=500)
+
+        self.number_of_chart = ttk.Scale(self.choose_chart_frm, orient="horizontal", from_=1, to=10, command=self.on_scale_change)
+        self.number_of_chart.place(x=5,y=5)
+        self.number_of_chart_label = ttk.Label(self.choose_chart_frm, text="Charts: ")
+        self.number_of_chart_label.place(x=5,y=35)
+        self.create_form_btn = ttk.Button(self.choose_chart_frm, text="Create")
+        self.create_form_btn.place(x=100, y=35)
+
+        # KHOAI V
+        #######################################################
+        #######################################################
+        #######################################################
+        #######################################################
+        #######################################################
+        #######################################################
+        #######################################################
+        #######################################################
+        #######################################################
+        #######################################################
+        #######################################################
+        #######################################################
+        #######################################################
+        #######################################################
+        #######################################################
+        #######################################################
+
+        # Button để quit app
+        self.quit_btn = ttk.Button(self.f1_left, text="Quit", command='quit')
+        self.quit_btn.place(x=10, y=660)
+        
+        # Button để gửi phản hồi về ứng dụng đến nhà phát triển
+        self.feedback_btn = ttk.Button(self.f1_left, text="Feedback")
+        self.feedback_btn.place(x=100, y=660)
+
+        self.separator_left = ttk.Separator(self.f1_left, orient='vertical')
+        self.separator_left.place(x=195, y=0, width=5, height=700)
 
         # Frame 2 Right
         self.f1_right = ttk.Frame(self.root)
@@ -74,7 +121,6 @@ class App:
         # "se": hướng đông nam (căn về phía dưới bên phải)
         # "sw": hướng tây nam (căn về phía dưới bên trái)
         # "c" hoặc "center": căn chính giữa
-
         self.raw_data_table.column("1", anchor='c')
         self.raw_data_table.column("2", anchor='c')
         self.raw_data_table.column("3", anchor='c')
@@ -96,6 +142,73 @@ class App:
         self.raw_data_table.heading("8", text="")
         self.raw_data_table.heading("9", text="")
         self.raw_data_table.heading("10", text="")
+
+        for i in range(100):
+            self.raw_data_table.insert(parent="", index="end", iid=f"item{i}", values=("", "", "", "", "", "", "", "", "", ""))
+            pass
+
+        # Frame to contain the clean data table
+        self.clean_data_frm = ttk.Frame(self.f1_right)
+        self.clean_data_frm.place(x=0, y=300, width=1000, height=400)
+
+        self.clean_data_table = ttk.Treeview(self.clean_data_frm, selectmode='extended')
+        self.clean_data_table.place(x=0, y=0, width=950, height=300)
+
+        # Vertical Scrollbar
+        self.v_scrollbar_cdt = ttk.Scrollbar(self.clean_data_frm, orient='vertical', command=self.clean_data_table.yview)
+        self.clean_data_table.configure(yscrollcommand=self.v_scrollbar_cdt.set)
+        self.v_scrollbar_cdt.place(x=950, y=0, width=50, height=300)
+
+        # Horizontal Scrollbar
+        self.h_scrollbar_cdt = ttk.Scrollbar(self.clean_data_frm, orient='horizontal', command=self.clean_data_table.xview)
+        self.clean_data_table.configure(xscrollcommand=self.h_scrollbar_cdt.set)
+        self.h_scrollbar_cdt.place(x=0,y=300, width=950, height=20)
+
+        # define number of columns, max columns = 10
+        self.clean_data_table["columns"] = ("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")
+
+        # define heading
+        self.clean_data_table["show"] = 'headings'
+
+        self.clean_data_table.column("1", anchor='c')
+        self.clean_data_table.column("2", anchor='c')
+        self.clean_data_table.column("3", anchor='c')
+        self.clean_data_table.column("4", anchor='c')
+        self.clean_data_table.column("5", anchor='c')
+        self.clean_data_table.column("6", anchor='c')
+        self.clean_data_table.column("7", anchor='c')
+        self.clean_data_table.column("8", anchor='c')
+        self.clean_data_table.column("9", anchor='c')
+        self.clean_data_table.column("10", anchor='c')
+
+        self.clean_data_table.heading("1", text="")
+        self.clean_data_table.heading("2", text="")
+        self.clean_data_table.heading("3", text="")
+        self.clean_data_table.heading("4", text="")
+        self.clean_data_table.heading("5", text="")
+        self.clean_data_table.heading("6", text="")
+        self.clean_data_table.heading("7", text="")
+        self.clean_data_table.heading("8", text="")
+        self.clean_data_table.heading("9", text="")
+        self.clean_data_table.heading("10", text="")
+
+        for i in range(100):
+            self.clean_data_table.insert(parent="", index="end", iid=f"item{i}", values=("", "", "", "", "", "", "", "", "", ""))
+            pass
+
+        # Button để chuyển sang trang trực quan hóa dữ liệu
+        self.visualization_btn = ttk.Button(self.clean_data_frm, text="Visualization")
+        self.visualization_btn.place(x=10, y=360)
+
+        # Button để download clean data
+        self.download_clean_data = ttk.Button(self.clean_data_frm, text="Download Clean Data")
+        self.download_clean_data.place(x=100, y=360)
+
+
+    def on_scale_change(self,value):
+        print(f"Giá trị: {int(float(value))}")
+        self.number_of_chart_label.configure(text=f"Charts: {int(float(value))}")
+    
 
         #---------------------------------
         # Developed By Nguyen Van Long 
