@@ -13,6 +13,7 @@ from docx import Document
 from docx.shared import Pt
 from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_LINE_SPACING
 from docx.shared import Cm
+import os 
 
 
 
@@ -343,6 +344,9 @@ class App:
         self.f3_export_word = ttk.Button(self.f3_left, text='Export Word', command=self.export_word)
         self.f3_export_word.place(x=200, y=550)
 
+        self.res_lbl = ttk.Label(self.f3_left, text="Lưu thành công!")
+        # self.res_lbl.place(x=200,y=650)
+
         self.separator_left_3 = ttk.Separator(self.f3_left, orient='vertical')
         self.separator_left_3.place(x=395, y=0, width=5, height=700)
 
@@ -369,7 +373,7 @@ class App:
         self.canvas_f3.configure(yscrollcommand=self.y_scrollbar.set)
 
         # Content Frame
-        self.content_frame = ttk.Frame(self.canvas_f3,width=900,height=1600,style="F3R.TFrame")
+        self.content_frame = ttk.Frame(self.canvas_f3,width=900,height=2600,style="F3R.TFrame")
         self.canvas_f3.create_window((0,0),window=self.content_frame,anchor=NW)
 
         self.header_text = Label(self.content_frame,text='Báo cáo phân tích dữ liệu', anchor=CENTER, justify=CENTER, background='#fff')
@@ -379,23 +383,27 @@ class App:
         self.body_text = Label(self.content_frame, text='I. Thông tin chung',background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
         self.body_text.place(x=50,y=100)
 
-        if None:
-            pass
 
-        self.body_text1 = Label(self.content_frame, text='Tên Môn: Lập trình Python',background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
-        self.body_text1.place(x=50,y=130)
 
-        self.body_text2 = Label(self.content_frame, text='Mã môn: FE6051        Số tín chỉ: 3 (2,1,0)',background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
-        self.body_text2.place(x=50,y=160)
+        # Viết code ở đây
 
-        self.body_text3 = Label(self.content_frame, text='Số lớp học phần: 9',background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
-        self.body_text3.place(x=50,y=190)
 
-        self.body_text4 = Label(self.content_frame, text='Tổng số sinh viên: 700        Pass: 83.2%',background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
-        self.body_text4.place(x=50,y=220)
+
+
+        # self.body_text1 = Label(self.content_frame, text='Tên Môn: Lập trình Python',background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
+        # self.body_text1.place(x=50,y=130)
+
+        # self.body_text2 = Label(self.content_frame, text='Mã môn: FE6051        Số tín chỉ: 3 (2,1,0)',background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
+        # self.body_text2.place(x=50,y=160)
+
+        # self.body_text3 = Label(self.content_frame, text='Số lớp học phần: 9',background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
+        # self.body_text3.place(x=50,y=190)
+
+        # self.body_text4 = Label(self.content_frame, text='Tổng số sinh viên: 700        Pass: 83.2%',background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
+        # self.body_text4.place(x=50,y=220)
         
-        self.body_text5 = Label(self.content_frame, text='II. Kết quả trực quan hóa dữ liệu',background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
-        self.body_text5.place(x=50,y=250)
+        # self.body_text5 = Label(self.content_frame, text='II. Kết quả trực quan hóa dữ liệu',background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
+        # self.body_text5.place(x=50,y=250)
 
         # self.image1 = Label(self.content_frame, image=self.score_ratio, background='#fff', anchor=CENTER, justify=CENTER)
         # self.image1.place(x=450,y=450,anchor=CENTER)
@@ -403,26 +411,27 @@ class App:
         # self.image2 = Label(self.content_frame,image=self.test_ratio,background='#fff',anchor=CENTER,justify=CENTER)
         # self.image2.place(x=450,y=800,anchor=CENTER)
 
-        self.body_text6 = Label(self.content_frame, text='III. Kết luận',background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
-        self.body_text6.place(x=50,y=1000)
+        # self.body_text6 = Label(self.content_frame, text='III. Kết luận',background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
+        # self.body_text6.place(x=50,y=1000)
 
-        self.body_text7 = Label(self.content_frame, text='.'*79,background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
-        self.body_text7.place(x=50,y=1030)
+        # self.body_text7 = Label(self.content_frame, text='.'*79,background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
+        # self.body_text7.place(x=50,y=1030)
 
-        self.body_text8 = Label(self.content_frame, text='.'*79,background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
-        self.body_text8.place(x=50,y=1060)
+        # self.body_text8 = Label(self.content_frame, text='.'*79,background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
+        # self.body_text8.place(x=50,y=1060)
 
         # end report
-        self.body_text9 = Label(self.content_frame, text='Ngày .... Tháng .... Năm .... ',background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
-        self.body_text9.place(x=500,y=1100)
+        # self.body_text9 = Label(self.content_frame, text='Ngày .... Tháng .... Năm .... ',background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
+        # self.body_text9.place(x=500,y=1100)
 
-        self.body_text9 = Label(self.content_frame, text='Ký tên',background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
-        self.body_text9.place(x=575,y=1130)
+        # self.body_text9 = Label(self.content_frame, text='Ký tên',background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
+        # self.body_text9.place(x=575,y=1130)
+
+        # self.content_frame.update_idletasks()
+        # self.canvas_f3.config(scrollregion=self.canvas_f3.bbox("all"))
 
         self.content_frame.update_idletasks()
         self.canvas_f3.config(scrollregion=self.canvas_f3.bbox("all"))
-
-
 
 
 
@@ -607,6 +616,7 @@ class App:
         elif self.current_frame_l == self.f2_left and self.current_frame_r == self.f2_right:
             # phân tích dữ liệu ở đây
             self.auto_analysis()
+            
 
             self.f2_left.place_forget()
             self.f2_right.place_forget()
@@ -614,6 +624,8 @@ class App:
             self.f3_right.place(x=400, y=0, width=1000, height=700)
             self.current_frame_l = self.f3_left
             self.current_frame_r = self.f3_right
+
+            self.draw_report()
 
     
     def auto_analysis(self):
@@ -624,7 +636,7 @@ class App:
         recommend = f"Dựa trên dữ liệu phân tích của {num_rows} dòng dữ liệu và {num_cols} cột dữ liệu.\n"
         recommend += col_names_text
 
-        self.analysis_data['recommend'] = recommend
+        
         
         numeric_cols = self.clean_data.select_dtypes(include='number')
         column_stats = pd.DataFrame({
@@ -635,9 +647,89 @@ class App:
             'Min': numeric_cols.min(),
             'Max': numeric_cols.max()
         })
-        print(column_stats)
-
+        # print(column_stats)
+        self.analysis_data['recommend'] = recommend
         self.analysis_data['statistic'] = column_stats
+
+        # print(self.analysis_data)
+    
+
+    def draw_report(self):
+        if self.analysis_data is not None:
+            # print(self.analysis_data['recommend'])
+            # print(self.analysis_data['statistic'])
+            self.body_text1 = Label(self.content_frame, text=self.analysis_data['recommend'],background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
+            self.body_text1.place(x=50,y=130)
+
+            print(self.analysis_data['statistic'])
+            i = 0
+            for index, row in self.analysis_data['statistic'].iterrows():
+                print(row)
+                text = f"{row.name}: mean = {row[1]}, mode = {row[2]}, median = {row[3]}, min = {row[4]}, max = {row[5]}"
+                body_text = Label(self.content_frame, text=text, background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
+                y_ = 190+30*i
+                body_text.place(x=50, y=y_)
+                i += 1
+            length_ = len(self.analysis_data['statistic'])
+            self.body_text5 = Label(self.content_frame, text='II. Kết quả trực quan hóa dữ liệu',background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
+            self.body_text5.place(x=50,y=190+30*length_)
+            
+            # self.body_text2 = Label(self.content_frame, text='Mã môn: FE6051        Số tín chỉ: 3 (2,1,0)',background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
+            # self.body_text2.place(x=50,y=160)
+
+            # self.body_text3 = Label(self.content_frame, text='Số lớp học phần: 9',background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
+            # self.body_text3.place(x=50,y=190)
+
+            # self.body_text4 = Label(self.content_frame, text='Tổng số sinh viên: 700        Pass: 83.2%',background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
+            # self.body_text4.place(x=50,y=220)
+            
+            img0 = 'pic0.png'
+            img1 = 'pic1.png'
+            img2 = 'pic2.png'
+            img3 = 'pic3.png'
+            length_1 = 190 + 30 * length_ + 200
+            j = 0
+            if os.path.exists(img0):
+                self.pic0 = ImageTk.PhotoImage(Image.open(img0).resize((400,300)))
+                self.image0 = Label(self.content_frame, image=self.pic0, background='#fff', anchor=CENTER, justify=CENTER)
+                self.image0.place(x=450,y=length_1 + 350 * j,anchor=CENTER)
+                j += 1
+            
+            if os.path.exists(img1):
+                self.pic1 = ImageTk.PhotoImage(Image.open(img1).resize((400,300)))
+                self.image1 = Label(self.content_frame, image=self.pic1, background='#fff', anchor=CENTER, justify=CENTER)
+                self.image1.place(x=450,y=length_1 + 350 * j,anchor=CENTER)
+                j += 1
+            if os.path.exists(img2):
+                self.pic2 = ImageTk.PhotoImage(Image.open(img2).resize((400,300)))
+                self.image2 = Label(self.content_frame, image=self.pic2, background='#fff', anchor=CENTER, justify=CENTER)
+                self.image2.place(x=450,y=length_1 + 350 * j,anchor=CENTER)
+                j += 1
+            if os.path.exists(img3):
+                self.pic3 = ImageTk.PhotoImage(Image.open(img3).resize((400,300)))
+                self.image3 = Label(self.content_frame, image=self.pic3, background='#fff', anchor=CENTER, justify=CENTER)
+                self.image3.place(x=450,y=length_1 + 350 * j,anchor=CENTER)
+                j += 1
+
+            length_2 = length_1 + 350 * j + 30
+
+            # m = 0
+            self.body_text6 = Label(self.content_frame, text='III. Kết luận',background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
+            self.body_text6.place(x=50,y=length_2)
+
+            self.body_text7 = Label(self.content_frame, text='.'*79,background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
+            self.body_text7.place(x=50,y=length_2 + 30)
+
+            self.body_text8 = Label(self.content_frame, text='.'*79,background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
+            self.body_text8.place(x=50,y=length_2 + 60)
+
+            self.body_text9 = Label(self.content_frame, text='Ngày .... Tháng .... Năm .... ',background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
+            self.body_text9.place(x=500,y=length_2 + 10)
+
+            self.body_text9 = Label(self.content_frame, text='Ký tên',background='#fff', font=self.text_font, anchor=CENTER, justify=CENTER)
+            self.body_text9.place(x=575,y=length_2 + 40)
+
+            
     
     def send_data(self):
         '''Hàm lọc lấy các figure để vẽ biểu đồ hợp lệ
@@ -802,67 +894,115 @@ class App:
     
     def export_word(self):
         # Tạo một tài liệu mới
-        doc = Document()
+        if self.analysis_data is not None:
+            doc = Document()
 
-        # Đặt kích thước giấy A4
-        section = doc.sections[0]
-        section.page_width = Cm(21) # Chiều rộng A4 (21 cm)
-        section.page_height = Cm(29.7) # height 29.7 cm
+            # Đặt kích thước giấy A4
+            section = doc.sections[0]
+            section.page_width = Cm(21) # Chiều rộng A4 (21 cm)
+            section.page_height = Cm(29.7) # height 29.7 cm
 
-        # Định dạng tiêu đề
-        title = doc.add_paragraph("Báo cáo môn học Lập trình Python (FE6051)")
-        title.runs[0].bold = True
-        title.runs[0].font.size = Pt(18)
-        title.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        
-        body_text = [
-            "I.Thông tin chung","Tên môn: Lập trình Python",
-            "Mã môn: FE6051        Số tín chỉ: 3(2,1,0)",
-            "Số lớp học phần: 9",
-            "Tổng số sinh viên: 700        Pass: 83.2%",
-            "II. Kết quả xử lý số liệu"
-        ]
-        
-        for i in body_text:
-            body_para = doc.add_paragraph(i)
+            # Định dạng tiêu đề
+            title = doc.add_paragraph("Báo cáo phân tích dữ liệu")
+            title.runs[0].bold = True
+            title.runs[0].font.size = Pt(18)
+            title.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            
+            body_text = [
+                "I.Thông tin chung",
+                self.analysis_data['recommend'],
+                self.analysis_data['statistic'],
+                "II. Kết quả xử lý số liệu"
+            ]
+
+            body_para = doc.add_paragraph(body_text[0])
             body_para.alignment = WD_ALIGN_PARAGRAPH.LEFT
             body_para.paragraph_format.line_spacing = Pt(15) # dãn dòng 1.5
             body_para.paragraph_format.line_spacing_rule = WD_LINE_SPACING.EXACTLY
             body_para.runs[0].font.size = Pt(14)
 
-        # Chèn hình ảnh
-        # doc.add_picture('./score_ratio_1.png')
-        # doc.add_picture('./test_ratio.png')
+            body_para = doc.add_paragraph(body_text[1])
+            body_para.alignment = WD_ALIGN_PARAGRAPH.LEFT
+            body_para.paragraph_format.line_spacing = Pt(15) # dãn dòng 1.5
+            body_para.paragraph_format.line_spacing_rule = WD_LINE_SPACING.EXACTLY
+            body_para.runs[0].font.size = Pt(14)
 
-        end_text = [
-            "III. Kết luận",
-            "."*79,
-            "."*79
-        ]
+            i = 0
+            for index, row in self.analysis_data['statistic'].iterrows():
+                print(row)
+                text = f"{row.name}: mean = {row[1]}, mode = {row[2]}, median = {row[3]}, min = {row[4]}, max = {row[5]}"
+                body_para = doc.add_paragraph(text)
+                body_para.alignment = WD_ALIGN_PARAGRAPH.LEFT
+                body_para.paragraph_format.line_spacing = Pt(15) # dãn dòng 1.5
+                body_para.paragraph_format.line_spacing_rule = WD_LINE_SPACING.EXACTLY
+                body_para.runs[0].font.size = Pt(14)
+                i += 1
+            
+            body_para = doc.add_paragraph(body_text[3])
+            body_para.alignment = WD_ALIGN_PARAGRAPH.LEFT
+            body_para.paragraph_format.line_spacing = Pt(15) # dãn dòng 1.5
+            body_para.paragraph_format.line_spacing_rule = WD_LINE_SPACING.EXACTLY
+            body_para.runs[0].font.size = Pt(14)
+            
+            img0 = 'pic0.png'
+            img1 = 'pic1.png'
+            img2 = 'pic2.png'
+            img3 = 'pic3.png'
+            
+            if os.path.exists(img0):
+                doc.add_picture(img0)
+            
+            if os.path.exists(img1):
+                doc.add_picture(img1)
+            
+            if os.path.exists(img2):
+                doc.add_picture(img2)
+            
+            if os.path.exists(img3):
+                doc.add_picture(img3)
+            
 
-        for i in end_text:
-            end_para = doc.add_paragraph(i)
-            end_para.alignment = WD_ALIGN_PARAGRAPH.LEFT
-            end_para.paragraph_format.line_spacing = Pt(15) # dãn dòng 1.5
-            end_para.paragraph_format.line_spacing_rule = WD_LINE_SPACING.EXACTLY
-            end_para.runs[0].font.size = Pt(14)
+            # Chèn hình ảnh
+            
 
-        footer = "Ngày .... Tháng .... Năm .... \n\nKý tên\t\t"
-        footer_doc = doc.add_paragraph(footer)
-        footer_doc.alignment = WD_ALIGN_PARAGRAPH.RIGHT
-        footer_doc.paragraph_format.line_spacing = Pt(15) # dãn dòng 1.5
-        footer_doc.paragraph_format.line_spacing_rule = WD_LINE_SPACING.EXACTLY
-        footer_doc.runs[0].font.size = Pt(14)
+            end_text = [
+                "III. Kết luận",
+                "."*79,
+                "."*79
+            ]
 
-        # Đặt font family cho toàn tài liệu
-        for paragraph in doc.paragraphs:
-            for run in paragraph.runs:
-                run.font.name = "Times New Roman"
+            for i in end_text:
+                end_para = doc.add_paragraph(i)
+                end_para.alignment = WD_ALIGN_PARAGRAPH.LEFT
+                end_para.paragraph_format.line_spacing = Pt(15) # dãn dòng 1.5
+                end_para.paragraph_format.line_spacing_rule = WD_LINE_SPACING.EXACTLY
+                end_para.runs[0].font.size = Pt(14)
+
+            footer = "Ngày .... Tháng .... Năm .... \n\nKý tên\t\t"
+            footer_doc = doc.add_paragraph(footer)
+            footer_doc.alignment = WD_ALIGN_PARAGRAPH.RIGHT
+            footer_doc.paragraph_format.line_spacing = Pt(15) # dãn dòng 1.5
+            footer_doc.paragraph_format.line_spacing_rule = WD_LINE_SPACING.EXACTLY
+            footer_doc.runs[0].font.size = Pt(14)
+
+            # Đặt font family cho toàn tài liệu
+            for paragraph in doc.paragraphs:
+                for run in paragraph.runs:
+                    run.font.name = "Times New Roman"
 
 
-        # Lưu tài liệu
-        doc.save("Final_report.docx")
-        print("Lưu thành công!!!")
+            # Lưu tài liệu
+            doc.save("Final_report.docx")
+            print("Lưu thành công!!!")
+            self.res_lbl.configure(text="Lưu thành công!")
+            # self.res_lbl.place(x=200,y=650)
+            # self.f3_left.after(2000, self.res_lbl.place_forget())
+            messagebox.showinfo(title="Info", message="Lưu thành công!")
+        else:
+            messagebox.showerror(title="Error", message="Lỗi xuất dữ liệu do dữ liệu trống")
+            # self.res_lbl.configure(text="Lưu thất bại!")
+            # self.res_lbl.place(x=200,y=600)
+            # self.f3_left.after(2000, self.res_lbl.place_forget())
 
     
     def submit_form(self):

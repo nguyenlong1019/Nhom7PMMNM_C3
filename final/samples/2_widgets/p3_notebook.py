@@ -19,9 +19,13 @@ tab2 = ttk.Frame(notebook)
 tab3 = ttk.Frame(notebook)
 
 # thêm các tab vào notebook
-notebook.add(tab1, text="Tab 1")
-notebook.add(tab2, text="Tab 2")
-notebook.add(tab3, text="Tab 3")
+# notebook.add(tab1, text="Tab 1")
+# notebook.add(tab2, text="Tab 2")
+# notebook.add(tab3, text="Tab 3")
+
+notebook.add(tab1)
+notebook.add(tab2)
+notebook.add(tab3)
 
 # đặt sự kiện khi tab được chọn
 notebook.bind("<<NotebookTabChanged>>", on_tab_selected)

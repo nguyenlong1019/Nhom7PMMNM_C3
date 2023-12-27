@@ -7,7 +7,7 @@ def draw_chart():
     # Tạo một biểu đồ đơn giản để minh họa
     figure = Figure(figsize=(5, 4), dpi=100)
     subplot = figure.add_subplot(1, 1, 1)
-    subplot.plot([1, 2, 3, 4, 5], [2, 3, 5, 7, 11], marker='o')
+    subplot.plot([1, 2, 3, 4, 5,7,8], [2, 3, 5, 7, 11,22,55], marker='o')
 
     # Hiển thị biểu đồ trên Canvas
     canvas = FigureCanvasTkAgg(figure, master=frame)

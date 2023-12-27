@@ -1,20 +1,19 @@
-Ứng dụng như sau: nhận đầu vào là file excel hoặc csv, hiển thị dữ liệu lên treeview
+Ứng dụng như sau: nhận đầu vào là csv, hiển thị dữ liệu lên treeview
 
 # các chức năng làm sạch dữ liệu 
-loại bỏ các cột null hoặc có giá trị bằng 0
-nếu trong cột có số lượng giá trị null hoặc 0 lơn hơn hoặc bằng 80% thì xóa cột đó đi
-nếu trong cột có số lượng giá trị null < 80%
-    < 50%: lấy giá trị trung bình numpy.mean()
-    < 65%: lấy giá trị ở giữa numpy.median()
-    < 80%: lấy giá trị numpy.mode(): giá trị xuất hiện nhiều nhất
-=> kết quả sau khi làm sạch thì sẽ là giữ liệu được điền đầy đủ
+loại bỏ các cột null hoặc có giá trị bằng giá trị mean() của cột đó
+=> kết quả sau khi làm sạch thì sẽ là giữ liệu được điền đầy đủ (có thể download được dữ liệu đã xử lý)
 
-# trực quan hóa dữ liệu (chỉ trực quan được các biểu đồ nếu dữ liệu là số): 
+# trực quan hóa dữ liệu (chỉ trực quan được các biểu đồ nếu dữ liệu là số, chữ và số, số): 
     cho phép người dùng tự trọn vẽ biểu đồ các trường nào? xác định trục x, y ()
-    # nếu trong cột số mà có chữ báo lỗi
-    # nếu trực quan hóa không thành công thì không được phân tích và tạo báo cáo
+    nếu biểu đồ có 2 cột dạng text (object) -> loại bỏ
+    nếu biểu đồ có 2 cột trùng nhau -> loại bỏ
+    nếu không có biểu đồ nào hợp lệ, báo lỗi, không cho phép trực quan hóa dữ liệu
 
 # phân tích và tạo báo cáo tự động
-    nhập mô tả biểu đồ (cần quan tâm trường nào (field) để nhận xét, tăng giảm, tạo một số mẫu sẵn)
+    phân tích dữ liệu các cột có kiểu number (data type là number): các giá trị mean, mode, median, min, max
     hiển thị biểu đồ
-    xuất ra word, excel, pdf
+    xuất ra word
+
+# chức năng feedback
+    Gửi email nếu email hợp lệ và các trường input không trống
